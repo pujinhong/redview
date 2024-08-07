@@ -1,0 +1,25 @@
+server:
+  port: 20000
+
+spring:
+  application:
+    name: red-view
+  profiles:
+    # 环境配置
+    active: mysql
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+        server-addr: 127.0.0.1:8848
+      config:
+        enabled: false
+        server-addr: 127.0.0.1:8848
+      import-check:
+        enabled: false
+
+  mybatis-plus:
+    # 搜索指定包别名
+    typeAliasesPackage: com.red.view.**
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+    mapper-locations: classpath:xml/*.xml

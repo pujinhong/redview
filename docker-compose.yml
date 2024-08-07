@@ -1,0 +1,18 @@
+version: "3"
+services:
+  view:
+    build: .
+    ports:
+      - '20000:20000'            # 冒号左边可以改成自己服务器未被占用的端口
+    restart: on-failure
+
+  db:
+    image: mysql:5.7
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456   # 数据库用户root的密码
+    volumes:
+      - /D/red-view/mysql/data:/var/lib/mysql  # 冒号左边可以改路径，现在是表示把数据存放在在当前文件夹下的 mariadb 文件夹中
+    restart: on-failure
