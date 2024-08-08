@@ -1,1 +1,24 @@
-Multi DataSource Headless Content Server
+# Red-View
+
+### 一个支持多数据源的数据查询服务
+
+
+
+### 介绍
+我为很多驾驶舱系统开发后台服务。  
+我发现，驾驶舱系统依赖大量的统计分析类的数据查询，并且数据类型非常多样。  
+我的前端伙伴为了快速构建驾驶舱系统，采用了[GoView](https://www.mtruning.club/#/)  
+所以我尝试为GoView设计可配置的后台服务。
+
+### 特性
+* 支持多种数据库，目前支持postgresql、mysql、oracle、sqlserver、clickhouse、json
+* 提供配置页面，可以以图形化的方式配置视图及其数据源
+* 轻量化，只有查询，没有集成多余的部件，适合嵌入到微服务体系中，目前支持SpringCloudAlibaba
+
+### TODO
+* 组合视图，以多个视图为数据源构建新的视图，能满足多数据源联合查询的复杂需求
+* 优化模糊查询，目前采用命名参数（即 :paramName）的方式实现预编译SQL语句，但其对模糊查询等场景不够友好
+* 接入API数据，以及接入带鉴权的API数据
+* 开发一些转换器，将视图数据直接转为echart、goview可直接加载使用的结构
+* 接入文件和文档，文档提供markdown预览
+* 接入视频监控，包含国标和海康
