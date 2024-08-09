@@ -40,3 +40,7 @@ export const delBento = ( id : number ) => {
 export const getBento = ( id : number ) => {
     return searchAction('/bento/get', { id })
 }
+
+export const getDatasources = ( params : object ) => {
+    return searchAction('/ds/list', params)
+}

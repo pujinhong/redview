@@ -1,15 +1,15 @@
 <script setup lang="ts"> 
-import Bento from './components/Bento.vue'
-import Source from './components/Source.vue'
+import BentoList from './components/BentoList.vue'
+import SourceList from './components/SourceList.vue'
 </script>
 
 <template> 
     <el-tabs tab-position="right" class="demo-tabs">
     <el-tab-pane label="视图">
-      <Bento></Bento>
+      <BentoList></BentoList>
     </el-tab-pane>
     <el-tab-pane label="数据源">
-      <Source></Source>
+      <SourceList></SourceList>
     </el-tab-pane>
   </el-tabs>
 </template>
