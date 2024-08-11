@@ -1,6 +1,10 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/red-view
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/red-view
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
