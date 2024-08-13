@@ -27,25 +27,41 @@ public class ViewController {
     IBentoJsonService bentoJsonService;
 
     @CrossOrigin
-    @GetMapping("/sql/{name}")
+    @GetMapping("/{name}")
     public AjaxResult oneByName(@PathVariable("name") String name, @RequestParam Map<String, Object> params) throws IOException {
-        BentoSqlEntity one = bentoSqlService.getOne(new LambdaQueryWrapper<BentoSqlEntity>().eq(BentoSqlEntity::getName, name));
-        if(one == null){
-            return AjaxResult.error("未找到对应的块");
+        // SQL视图
+        BentoSqlEntity sqlView = bentoSqlService.getOne(new LambdaQueryWrapper<BentoSqlEntity>().eq(BentoSqlEntity::getName, name));
+        if(sqlView != null){
+            return AjaxResult.ok().setData(sqlView);
         }
+        // JSON视图
+        BentoJsonEntity jsonView = bentoJsonService.getOne(new LambdaQueryWrapper<BentoJsonEntity>().eq(BentoJsonEntity::getName, name));
+        if(jsonView != null){
+            return AjaxResult.ok().setData(jsonView);
+        }
+        // 组合视图
 
-        List<Map<String, Object>> data = dynamicJDBC.findListByMap(one.getDataSource(), one.getStatement(), params);
-        return AjaxResult.ok().setData(data);
+        // 订阅视图
+
+        // 文件视图
+
+        // 流媒体视图
+
+        return AjaxResult.error("未知视图");
     }
 
     @CrossOrigin
-    @GetMapping("/json/{name}")
-    public AjaxResult oneByName(@PathVariable("name") String name) throws IOException {
-        BentoJsonEntity one = bentoJsonService.getOne(new LambdaQueryWrapper<BentoJsonEntity>().eq(BentoJsonEntity::getName, name));
-        if(one == null){
-            return AjaxResult.error("未找到对应的块");
-        }
-        JSONObject json = JSON.parseObject(one.getJson());
-        return AjaxResult.ok().setData(json);
+    @GetMapping("/{name}/goview/{type}")
+    public AjaxResult goViewByName(@PathVariable("name") String name,@PathVariable("type") String type, @RequestParam Map<String, Object> params) throws IOException {
+
+        AjaxResult ajaxResult = oneByName(name, params);
+
+        //TODO 转为goview可用的结构
+        ajaxResult = ajaxResult;
+
+        return  ajaxResult;
+
     }
+
+
 }

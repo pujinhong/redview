@@ -27,7 +27,7 @@ public interface IDataSourceService extends IService<DataSourceEntity> {
      * @param id
      * @return
      */
-    AjaxResult deleteDataSource(String id);
+    AjaxResult deleteDataSource(Integer id);
 
     void addDynamicDataSource(DataSourceEntity sysDataSource, String dbPassword);
 

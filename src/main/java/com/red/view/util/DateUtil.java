@@ -23,4 +23,13 @@ public class DateUtil {
             throw new IllegalArgumentException("Invalid date format: " + value);
         }
     }
+
+    public static String parseYYYYMMDDHHMMSS(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        try {
+            return dateFormat.format(date);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid date format: " + date.toString());
+        }
+    }
 }

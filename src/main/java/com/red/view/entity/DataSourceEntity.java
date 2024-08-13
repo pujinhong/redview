@@ -21,8 +21,8 @@ public class DataSourceEntity {
     /**
      * id
      */
-    @TableId(type = IdType.ASSIGN_ID)
-    private String id;
+    @TableId(type = IdType.AUTO)
+    private Integer id;
     /**
      * 数据源编码
      */

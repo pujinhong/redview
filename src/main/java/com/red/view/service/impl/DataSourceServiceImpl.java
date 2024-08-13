@@ -76,7 +76,7 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
     }
 
     @Override
-    public AjaxResult deleteDataSource(String id) {
+    public AjaxResult deleteDataSource(Integer id) {
         DataSourceEntity sysDataSource = getById(id);
         removeCache(sysDataSource.getCode());
         removeById(id);

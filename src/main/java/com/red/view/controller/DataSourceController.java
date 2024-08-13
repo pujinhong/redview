@@ -9,10 +9,12 @@ import com.red.view.service.IBentoJsonService;
 import com.red.view.service.IBentoSqlService;
 import com.red.view.service.IDataSourceService;
 import com.red.view.service.IViewJDBC;
+import com.red.view.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -42,18 +44,24 @@ public class DataSourceController {
     }
 
     @PostMapping
-    public AjaxResult insert(@RequestBody BentoSqlEntity entity ){
-        return AjaxResult.ok();
+    public AjaxResult insert(@RequestBody DataSourceEntity entity ){
+        Date now = new Date();
+        entity.setCode(entity.getDbType()+"_"+ DateUtil.parseYYYYMMDDHHMMSS(now));
+        entity.setCreateTime(now);
+        entity.setUpdateTime(now);
+        return dataSourceService.saveDataSource(entity);
     }
 
     @DeleteMapping("/{id}")
-    public AjaxResult deleteOne(@PathVariable("id") Integer id){
-        return AjaxResult.ok();
+    public AjaxResult deleteOne(@PathVariable Integer id){
+        return dataSourceService.deleteDataSource(id);
     }
 
     @PutMapping
-    public AjaxResult update(@RequestBody BentoSqlEntity entity){
-        return AjaxResult.ok();
+    public AjaxResult update(@RequestBody DataSourceEntity entity){
+        Date now = new Date();
+        entity.setUpdateTime(now);
+        return dataSourceService.editDataSource(entity);
     }
 
 }
