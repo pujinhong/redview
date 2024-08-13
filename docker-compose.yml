@@ -6,7 +6,7 @@ services:
       - '20000:20000'            # 冒号左边可以改成自己服务器未被占用的端口
     restart: on-failure
 
-  db:
+  db1:
     image: mysql:5.7
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
@@ -16,3 +16,37 @@ services:
     volumes:
       - /D/red-view/mysql/data:/var/lib/mysql  # 冒号左边可以改路径，现在是表示把数据存放在在当前文件夹下的 mariadb 文件夹中
     restart: on-failure
+  db2:
+    image: postgis/postgis:latest
+    ports:
+      - '5432:5432'
+    volumes:
+      - /D/red-view/postgresql/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: gis_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 9C@5EDm%ZGvE
+  db3:
+    image: clickhouse/clickhouse-server
+    ports:
+      - '8123:8123'
+    volumes:
+      - /D/red-view/clickhouse/data:/var/lib/clickhouse/
+  db4:
+    image: oraclelinux:9
+    ports:
+      - '1521:1521'
+    volumes:
+      - /D/red-view/oracle_data:/opt/oracle/oradata
+  db5:
+    image:  mcr.microsoft.com/mssql/server
+    ports:
+      - '1433:1433'
+    volumes:
+      - /D/red-view/sqlserver:/var/opt/mssql
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: 9C@5EDm%ZGvE
+      MSSQL_PID: Express
+
+

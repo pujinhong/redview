@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import SourceItem from './SourceItem.vue'
+import SourceItem from './ds/SourceItem.vue'
 import { ElDrawer, ElMessageBox } from 'element-plus'
+import { ElNotification } from 'element-plus'
 import {getCurrentInstance, ref, provide, computed } from "vue" 
-import { getDatasources ,insertDatasource, updateDatasource, deleteDatasource} from "../api" 
+import { getDatasources ,insertDatasource, updateDatasource, deleteDatasource, tryDatasource} from "../api" 
 import { IDataSource} from '../types/IDataSource'
 
 const loading = ref(false) 
@@ -72,6 +73,25 @@ const handleSelectionChange = (rows: any) => {
     selection.value = rows.map((row: any) => row.id);
 }
 const handlePreview = (row: any) => {
+
+    tryDatasource(row.id).then((d) => {
+
+        if(d.success){
+            ElNotification({
+                title: '测试连接',
+                message: '连接成功！',
+                type: 'success',
+            })
+        }else{
+            ElNotification({
+                title: '测试连接',
+                message: '连接异常，请修改参数。',
+                type: 'error',
+            })
+        }
+ 
+    })
+
 }
 
 // 初始化

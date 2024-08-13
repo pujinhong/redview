@@ -46,6 +46,7 @@ export const getBento = ( id : number ) => {
     return searchAction('/bento/get', { id })
 }
 
+// 数据源
 export const getDatasources = ( params : object ) => {
     return searchAction('/ds/list', params)
 }
@@ -58,4 +59,7 @@ export const updateDatasource = (data : object) =>{
 }
 export const deleteDatasource = (id: number) =>{  
     return deleteAction('/ds/'+ id )
+}
+export const tryDatasource = (id : number) =>{
+    return jsonAction('/ds/try', { id })
 }

@@ -1,7 +1,7 @@
  
 <script setup lang="ts">
 import { reactive,Ref, ref, defineProps ,defineEmits,watch} from 'vue' 
-import { IDataSource} from '../types/IDataSource'
+import { IDataSource} from '../../types/IDataSource'
  
  
 
