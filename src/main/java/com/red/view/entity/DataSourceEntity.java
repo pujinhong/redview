@@ -77,19 +77,13 @@ public class DataSourceEntity {
      * 删除标志（0代表存在 1代表删除）
      */
     private Integer delFlag;
-    /**
-     * 创建人
-     */
-    private String createBy;
+
     /**
      * 创建日期
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private java.util.Date createTime;
-    /**
-     * 更新人
-     */
-    private String updateBy;
+
     /**
      * 更新日期
      */

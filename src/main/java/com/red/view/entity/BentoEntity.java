@@ -2,20 +2,20 @@ package com.red.view.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+/**
+ * @author pjh
+ * @created 2024/8/27
+ */
 @Data
-@TableName("t_bento_field")
-public class BentoFieldEntity{
+public abstract class BentoEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
     Integer id;
-    String fieldName;   //字段名
-    String bentoId;     //视图ID
-    String aliasName;       //字段别名
-    Integer index;      //字段排序
+    String name;
+    String title;
     /**
      * 创建日期
      */
@@ -29,4 +29,5 @@ public class BentoFieldEntity{
     private java.util.Date updateTime;
 
 
+    abstract String getType();
 }

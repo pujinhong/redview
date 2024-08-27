@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @author pjh
@@ -11,12 +12,14 @@ import lombok.Data;
  */
 @Data
 @TableName("t_bento_json")
-public class BentoJsonEntity {
+public class BentoJsonEntity  extends BentoEntity{
 
-    @TableId(value = "id", type = IdType.AUTO)
-    Integer id;
-    String name;
-    String title;
+
     String json;
 
+
+    @Override
+    String getType() {
+        return "JSON";
+    }
 }
