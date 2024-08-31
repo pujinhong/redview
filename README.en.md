@@ -15,7 +15,4 @@ I designed a configurable backend service to meet the needs of GoView.
 ## TODO
 * Composite Views: Build new views using multiple existing views as data sources to satisfy complex multi-source join queries.
 * Improve Fuzzy Search: Currently uses named parameters (i.e., :paramName) for pre-compiling SQL statements, but this approach is not very friendly for fuzzy search scenarios.
-* Integrate API Data: Connect to APIs, including authenticated APIs.
-* Develop Converters: Transform view data directly into structures that can be loaded by ECharts and GoView.
 * Integrate Files and Documents: Provide markdown previews for documents.
-* Integrate Video Surveillance: Include support for Chinese standards and Hikvision.
