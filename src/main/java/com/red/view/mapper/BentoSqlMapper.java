@@ -2,7 +2,7 @@ package com.red.view.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.red.view.entity.BentoSqlEntity;
+import com.red.view.entity.bentos.BentoSqlEntity;
 import org.springframework.stereotype.Repository;
 
 /**

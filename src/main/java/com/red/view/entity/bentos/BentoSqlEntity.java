@@ -1,9 +1,10 @@
-package com.red.view.entity;
+package com.red.view.entity.bentos;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.red.view.entity.BentoEntity;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,13 +14,13 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Data
 @TableName("t_bento_sql")
-public class BentoSqlEntity extends BentoEntity{
+public class BentoSqlEntity extends BentoEntity {
 
     String dataSource;
     String statement;
 
     @Override
-    String getType() {
+    public String getType() {
         return "SQL";
     }
 }

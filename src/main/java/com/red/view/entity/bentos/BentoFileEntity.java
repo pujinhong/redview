@@ -1,7 +1,8 @@
-package com.red.view.entity;
+package com.red.view.entity.bentos;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.red.view.entity.BentoEntity;
 import lombok.Data;
 
 /**
@@ -11,12 +12,12 @@ import lombok.Data;
  */
 @Data
 @TableName("t_bento_file")
-public class BentoFileEntity extends BentoEntity{
-    String fileId; //文件id uuid 32位 文件夹名称
-    String fileName; //文件名称（包含扩展名）
-    String fileType; // 文件类型
+public class BentoFileEntity extends BentoEntity {
+    public  String fileId; //文件id uuid 32位 文件夹名称
+    public  String fileName; //文件名称（包含扩展名）
+    public  String fileType; // 文件类型
     @Override
-    String getType() {
+    public String getType() {
         return "FILE";
     }
 

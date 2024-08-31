@@ -9,5 +9,5 @@ public interface IBentoService<T> extends IService<T> {
 
     Object getData(T entity , Map<String,Object> prams) throws Exception;
 
-    String setCache(T entity, Map<String,Object> prams) throws Exception;
+    Object setCache(T entity, Map<String,Object> prams) throws Exception;
 }

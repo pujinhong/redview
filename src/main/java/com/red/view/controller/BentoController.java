@@ -1,10 +1,10 @@
 package com.red.view.controller;
 
 import com.red.view.entity.AjaxResult;
-import com.red.view.entity.BentoJsonEntity;
-import com.red.view.entity.BentoSqlEntity;
-import com.red.view.service.IBentoJsonService;
-import com.red.view.service.IBentoSqlService;
+import com.red.view.entity.bentos.BentoJsonEntity;
+import com.red.view.entity.bentos.BentoSqlEntity;
+import com.red.view.service.bentos.IBentoJsonService;
+import com.red.view.service.bentos.IBentoSqlService;
 import com.red.view.service.IViewJDBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

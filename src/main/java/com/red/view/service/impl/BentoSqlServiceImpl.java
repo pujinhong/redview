@@ -1,20 +1,19 @@
 package com.red.view.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.red.view.entity.BentoSqlEntity;
+import com.red.view.entity.bentos.BentoSqlEntity;
 import com.red.view.mapper.BentoSqlMapper;
-import com.red.view.service.IBentoSqlService;
+import com.red.view.service.bentos.IBentoSqlService;
 import com.red.view.service.IViewJDBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * @author pjh
- * @created 2024/7/2
+ * {@code @author｝ pjh
+ * {@code @created} 2024/7/2
  */
 @Service
 public class BentoSqlServiceImpl extends ServiceImpl<BentoSqlMapper, BentoSqlEntity> implements IBentoSqlService {
@@ -36,9 +35,8 @@ public class BentoSqlServiceImpl extends ServiceImpl<BentoSqlMapper, BentoSqlEnt
 //                jdbcParams.put(entry.getKey(), entry.getValue());
 //            }
 //        }
-        List<Map<String, Object>> data = dynamicJDBC.findListByMap(view.getDataSource(), view.getStatement(), params);
 
-        return data;
+        return dynamicJDBC.findListByMap(view.getDataSource(), view.getStatement(), params);
     }
 
     @Override

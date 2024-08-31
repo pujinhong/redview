@@ -1,7 +1,7 @@
-package com.red.view.service;
+package com.red.view.service.bentos;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.red.view.entity.BentoSqlEntity;
+import com.red.view.entity.bentos.BentoSqlEntity;
+import com.red.view.service.IBentoService;
 
 import java.util.List;
 import java.util.Map;

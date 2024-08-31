@@ -1,9 +1,9 @@
 package com.red.view.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.red.view.entity.BentoFileEntity;
+import com.red.view.entity.bentos.BentoFileEntity;
 import com.red.view.mapper.BentoFileMapper;
-import com.red.view.service.IBentoFileService;
+import com.red.view.service.bentos.IBentoFileService;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;

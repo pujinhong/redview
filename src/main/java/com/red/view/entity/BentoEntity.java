@@ -13,9 +13,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 public abstract class BentoEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
-    Integer id;
-    String name;
-    String title;
+    public Integer id;
+    public String name;
+    public String title;
     /**
      * 创建日期
      */
@@ -29,5 +29,5 @@ public abstract class BentoEntity {
     private java.util.Date updateTime;
 
 
-    abstract String getType();
+    public abstract String getType();
 }
