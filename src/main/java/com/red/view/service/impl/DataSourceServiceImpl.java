@@ -153,6 +153,8 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
         dataSource.setConnectionErrorRetryAttempts(0);
         dataSource.setUsername(dbUser);
         dataSource.setMaxWait(30000);
+        dataSource.setKillWhenSocketReadTimeout(false);
+        dataSource.setSocketTimeout(1000*60*10); //sql执行10分钟超时
         dataSource.setPassword(dbPassword);
         return dataSource;
     }
