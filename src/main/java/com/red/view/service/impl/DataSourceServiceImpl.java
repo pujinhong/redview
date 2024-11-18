@@ -149,13 +149,19 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
         dataSource.setTestWhileIdle(true);
         dataSource.setTestOnBorrow(false);
         dataSource.setTestOnReturn(false);
-        dataSource.setBreakAfterAcquireFailure(true);
-        dataSource.setConnectionErrorRetryAttempts(0);
+        dataSource.setBreakAfterAcquireFailure(false);
+        dataSource.setConnectionErrorRetryAttempts(3);
         dataSource.setUsername(dbUser);
         dataSource.setMaxWait(30000);
+        // 设置当数据库连接的套接字读取超时时，不销毁连接
         dataSource.setKillWhenSocketReadTimeout(false);
         dataSource.setSocketTimeout(1000*60*10); //sql执行10分钟超时
         dataSource.setPassword(dbPassword);
+        dataSource.setConnectTimeout(1000*60*10); //连接超时10分钟
+        dataSource.setQueryTimeout(1000*60*10); //查询超时10分钟
+        dataSource.setLoginTimeout(1000*60*10); //登录超时10分钟
+        dataSource.setValidationQueryTimeout(1000*60*10); //验证超时10分钟
+        dataSource.setTransactionQueryTimeout(1000*60*10); //事务超时10分钟
         return dataSource;
     }
     /**
@@ -166,7 +172,7 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
      */
     @Override
     public DruidDataSource getDataSource(String dbKey) {
-        DruidDataSource dds = dbSources.get(dbKey);
+        DruidDataSource dds = null; // dbSources.get(dbKey);
         if (dds != null && !dds.isClosed()) {
             return dds;
         }else {
