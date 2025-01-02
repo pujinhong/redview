@@ -24,6 +24,10 @@ public class DataSourceController {
     IViewJDBC dynamicJDBC;
     @Autowired
     IDataSourceService dataSourceService;
+    @GetMapping("/ping")
+    public AjaxResult ping(){
+        return AjaxResult.ok();
+    }
 
     @GetMapping("/list")
     public AjaxResult list(@RequestParam Map<String, Object> params){

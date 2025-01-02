@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          url: jdbc:sqlite:/db/redview-sqlite.db
+          username: 
+          password: 
+          driver-class-name: org.sqlite.JDBC
