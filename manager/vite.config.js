@@ -10,9 +10,10 @@ export default defineConfig({
   },
   proxy: { 
     '/dev-api': {
-      target: 'https://f2fjhyjk-5k52p02l-wh5ivav6pp9c.vcc8.mcprev.cn:20000',
+      target: 'https://localhost:20000',
       changeOrigin: true,
       rewrite: (p) => p.replace(/^\/dev-api/, '')
     }
   }
 })
+ 
